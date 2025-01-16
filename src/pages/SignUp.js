@@ -15,6 +15,7 @@ export default function Regisztracio() {
   const navigate = useNavigate();
   const { loginReg, errors } = useAuthContext();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // Betöltési állapot bekapcsolása

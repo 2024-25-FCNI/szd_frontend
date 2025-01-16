@@ -1,10 +1,9 @@
-
 import React, { useContext, useState } from "react";
 import { ApiContext } from "../../contexts/ApiContext";
 
 function UjTermek() {
-  const { postData, kategoriaData } = useContext(ApiContext);
-  console.log(kategoriaData)
+  const { postData, kategoriaData = [] } = useContext(ApiContext); // Ensure kategoriaData is at least an empty array
+  console.log('kategoriaData:', kategoriaData); // Debugging log
   const [termek, setTermek] = useState({
     title: "",
     price: 10,
@@ -21,7 +20,6 @@ function UjTermek() {
         ? parseFloat(event.target.value) || 0
         : event.target.value;
     setTermek({ ...stermek });
-   
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -67,12 +65,12 @@ function UjTermek() {
           }}
         />
       </div>
-      <div className="mb-3">
+       {/*<div className="mb-3">
         <label htmlFor="category" className="form-label">
           Kategória
         </label>
         <select
-        required
+          required
           id="category"
           className="form-select"
           value={termek.category}
@@ -80,16 +78,12 @@ function UjTermek() {
         >
           <option value="">Válassz kategóriát!</option>
           {
-             kategoriaData.map((elem, index)=>{
-              return (<option value={elem} key={index}>{elem}</option>)
+            kategoriaData && Array.isArray(kategoriaData) && kategoriaData.map((elem, index) => {
+              return (<option value={elem} key={index}>{elem}</option>);
             })
           } 
-          
-          
-        
-       
         </select>
-      </div>
+    </div> */}
       <div className="mb-3">
         <label htmlFor="description" className="form-label">
           Leírás
