@@ -35,7 +35,7 @@ export default function Nav() {
             color: white;
           }
           .navbar-brand:hover {
-            color: rgb(199, 186, 144);
+            color: rgb(242, 223, 199);
           }
           .container {
             max-width: 100%; /* Szélesség beállítása a képernyő széléig */

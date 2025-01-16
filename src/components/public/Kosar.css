@@ -1,0 +1,18 @@
+/* Alap CSS stílusok a kosárnak */
+.kosar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Az elején a kosár a képernyő jobb oldalán kívül van */
+    width: 300px;  /* A kosár szélessége */
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;  /* A kosár mozgása */
+    z-index: 1000;  /* Biztosítja, hogy a kosár mindig a többi elem fölött legyen */
+  }
+  
+  /* Kosár animáció, amikor a kosár beúszik */
+  .kosar.show {
+    right: 0;  /* A kosár most a képernyő jobb oldalán lesz látható */
+  }
+  

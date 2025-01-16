@@ -6,6 +6,7 @@ import {  Routes, Route } from "react-router-dom";
 import Bejelentkezes from "./pages/Login";
 import Regisztracio from "./pages/SignUp";
 import NoPage from "./pages/NoPage";
+import UjJelszo from "./pages/UjJelszo";
 
 
 
@@ -24,7 +25,7 @@ function App() {
             <Route path="*" element={<NoPage />} />
             <Route path="bejelentkezes" element={<Bejelentkezes />} />
             <Route path="regisztracio" element={<Regisztracio />} />
-
+            <Route path="elfelejtett-jelszo" element={<UjJelszo />} /> 
           </Route>
         </Routes>
       

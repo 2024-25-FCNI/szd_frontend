@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../contexts/AuthContext";
 import myAxios from "../contexts/MyAxios";
 
-
 export default function Bejelentkezes() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,18 +11,17 @@ export default function Bejelentkezes() {
   const { loginReg, errors } = useAuthContext();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();       
+    e.preventDefault();
     const adat = {
-        email: email,
-        password: password,
-    };       
+      email: email,
+      password: password,
+    };
     try {
-        await myAxios.post("/bejelentkezes", adat );
+      await myAxios.post("/bejelentkezes", adat);
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-};
-
+  };
 
   return (
     <div className="m-auto" style={{ maxWidth: "400px" }}>
@@ -75,7 +73,11 @@ export default function Bejelentkezes() {
         </div>
 
         <div className=" text-center">
-          <button type="submit" className="btn w-100" style={{ backgroundColor: "#d2b48c" }}>
+          <button
+            type="submit"
+            className="btn w-100"
+            style={{ backgroundColor: "#d2b48c" }}
+          >
             Bejelentkezés
           </button>
 
@@ -85,6 +87,11 @@ export default function Bejelentkezes() {
               Regisztráció
             </Link>
           </p>
+        </div>
+        <div className="text-center">
+          <Link className="nav-link text-info" to="/elfelejtett-jelszo">
+            Elfelejtettem a jelszavam
+          </Link>
         </div>
       </form>
     </div>
