@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../contexts/AuthContext";
 import myAxios from "../contexts/MyAxios";
+import "./Gomb.css";
 
 export default function Bejelentkezes() {
   const [email, setEmail] = useState("");
@@ -75,21 +76,20 @@ export default function Bejelentkezes() {
         <div className=" text-center">
           <button
             type="submit"
-            className="btn w-100"
-            style={{ backgroundColor: "#d2b48c" }}
+            className= "gomb"
           >
             Bejelentkezés
           </button>
 
           <p>
             Még nincs fiókja?
-            <Link className="nav-link text-info" to="/regisztracio">
+            <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/regisztracio">
               Regisztráció
             </Link>
           </p>
         </div>
         <div className="text-center">
-          <Link className="nav-link text-info" to="/elfelejtett-jelszo">
+          <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/elfelejtett-jelszo">
             Elfelejtettem a jelszavam
           </Link>
         </div>

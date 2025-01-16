@@ -1,3 +1,10 @@
 .admintermekkep {
     width:100px;
 }
+
+.form-control:focus {
+    border-color: #d6bfa4; /* Rózsaszín keret */
+    box-shadow: 0 0 0 0.25rem rgba(201, 142, 88, 0.25); /* Árnyék is rózsaszín */
+    outline: none; /* Esetleges outline eltávolítása */
+  }
+  

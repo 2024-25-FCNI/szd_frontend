@@ -3,7 +3,7 @@ import { ApiContext } from "../../contexts/ApiContext";
 
 function UjTermek() {
   const { postData, kategoriaData = [] } = useContext(ApiContext); // Ensure kategoriaData is at least an empty array
-  console.log('kategoriaData:', kategoriaData); // Debugging log
+  console.log("kategoriaData:", kategoriaData); // Debugging log
   const [termek, setTermek] = useState({
     title: "",
     price: 10,
@@ -28,6 +28,8 @@ function UjTermek() {
 
   return (
     <form
+      className="m-auto"
+      style={{ maxWidth: "600px" }}
       onSubmit={(event) => {
         handleSubmit(event);
       }}
@@ -54,7 +56,7 @@ function UjTermek() {
         </label>
         <input
           type="number"
-          min="10"
+          min="0"
           max="100000"
           required
           className="form-control"
@@ -65,7 +67,7 @@ function UjTermek() {
           }}
         />
       </div>
-       {/*<div className="mb-3">
+      {/*<div className="mb-3">
         <label htmlFor="category" className="form-label">
           Kategória
         </label>
@@ -112,9 +114,11 @@ function UjTermek() {
           }}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Küld
-      </button>
+      <div className="text-end">
+        <button type="submit" className="gomb">
+          Küld
+        </button>
+      </div>
     </form>
   );
 }

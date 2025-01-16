@@ -15,7 +15,7 @@ export default function Nav() {
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
           .navbar {
             font-family: 'Poppins', sans-serif;
-            background-color: #a67b5b; /* Szebb barna árnyalat */
+            background-color:rgba(170, 136, 110, 0.65); 
             color: white;
             padding: 10px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

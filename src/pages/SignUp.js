@@ -141,15 +141,14 @@ export default function Regisztracio() {
         <div className="text-center">
           <button
             type="submit"
-            className="btn w-100"
-            style={{ backgroundColor: "#d2b48c" }}
+            className= "gomb"
             disabled={isLoading} // Betöltés alatt a gomb letiltva
           >
             {isLoading ? "Feldolgozás..." : "Regisztrálok"}
           </button>
           <p>
             Már van fiókja?
-            <Link className="nav-link text-info" to="/bejelentkezes">
+            <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/bejelentkezes">
               Bejelentkezés
             </Link>
           </p>
