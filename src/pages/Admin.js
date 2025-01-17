@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ApiContext } from "../contexts/ApiContext";
+import "../Oldalak.css";
 
 import TermekekAdmin from "../components/admin/TermekekAdmin";
 import UjTermek from "../components/admin/UjTermek";

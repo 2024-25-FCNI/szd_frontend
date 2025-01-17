@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useAuthContext from "../contexts/AuthContext";
 import { Outlet } from "react-router-dom";
-import { FaShoppingCart, FaUser  } from "react-icons/fa"; // React Icons importálása
+import { FaShoppingCart, FaUser } from "react-icons/fa"; // React Icons importálása
 
 export default function Nav() {
   const { user, logout } = useAuthContext();
@@ -12,9 +12,9 @@ export default function Nav() {
       {/* Google Fonts importálása */}
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+          
           .navbar {
-            font-family: 'Poppins', sans-serif;
+            
             background-color:rgba(170, 136, 110, 0.65); 
             color: white;
             padding: 10px 20px;
@@ -46,9 +46,16 @@ export default function Nav() {
       <nav className="navbar navbar-expand-sm">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Webshop
+            <div
+              style={{
+                backgroundImage: "url('/kepek/wehologo.png')",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                height: "60px",
+                width: "120px",
+              }}
+            ></div>
           </Link>
-
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">
@@ -69,14 +76,13 @@ export default function Nav() {
             ) : (
               <li className="nav-item">
                 <Link className="nav-link" to="/bejelentkezes">
-                Bejelentkezés <FaUser /> 
+                  Bejelentkezés <FaUser />
                 </Link>
               </li>
             )}
             <li className="nav-item">
               <Link className="nav-link" to="/kosar">
                 Kosár <FaShoppingCart /> {/* Kosár ikon */}
-                
               </Link>
             </li>
           </ul>
