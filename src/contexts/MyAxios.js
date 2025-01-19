@@ -7,6 +7,11 @@ export const myAxios = axios.create({
     withCredentials: true,
 });
 
+
+
+
+
+
   // import axios from "axios";
 
   // //Saját myAxios példány létrehozása és configurálása
@@ -36,4 +41,13 @@ export const myAxios = axios.create({
       console.error("Request interceptor error:", error);
       return Promise.reject(error);
     }
+
   );
+
+  myAxios.get("/sanctum/csrf-cookie")
+  .then(response => {
+    console.log("CSRF token megszerzése sikeres:", response);
+  })
+  .catch(error => {
+    console.error("CSRF token hiba:", error);
+  })

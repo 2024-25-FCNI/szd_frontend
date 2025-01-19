@@ -9,10 +9,8 @@ export default function Nav() {
 
   return (
     <>
-      {/* Google Fonts importálása */}
       <style>
         {`
-          
           .navbar {
             
             background-color:rgba(170, 136, 110, 0.65); 

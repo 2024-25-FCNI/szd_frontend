@@ -41,7 +41,15 @@ export default function Regisztracio() {
     } finally {
       setIsLoading(false); // Betöltési állapot kikapcsolása
     }
+    loginReg({
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+    }, "/regisztracio");
   };
+
+  
 
   return (
     <div className=" m-auto" style={{ maxWidth: "400px" }}>
