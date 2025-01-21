@@ -44,10 +44,4 @@ export const myAxios = axios.create({
 
   );
 
-  myAxios.get("/sanctum/csrf-cookie")
-  .then(response => {
-    console.log("CSRF token megszerzése sikeres:", response);
-  })
-  .catch(error => {
-    console.error("CSRF token hiba:", error);
-  })
+ 

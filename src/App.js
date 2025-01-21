@@ -23,9 +23,9 @@ function App() {
             <Route index element={<Public />} />
             <Route path="admin" element={<Admin />} />
             <Route path="*" element={<NoPage />} />
-            <Route path="bejelentkezes" element={<Bejelentkezes />} />
-            <Route path="regisztracio" element={<Regisztracio />} />
-            <Route path="elfelejtett-jelszo" element={<ElfelejtettJelszo />} /> 
+            <Route path="login" element={<Bejelentkezes />} />
+            <Route path="register" element={<Regisztracio />} />
+            <Route path="forgot-password" element={<ElfelejtettJelszo />} /> 
           </Route>
         </Routes>
       

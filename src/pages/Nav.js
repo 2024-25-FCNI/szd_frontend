@@ -73,7 +73,7 @@ export default function Nav() {
               </li>
             ) : (
               <li className="nav-item">
-                <Link className="nav-link" to="/bejelentkezes">
+                <Link className="nav-link" to="/login">
                   Bejelentkezés <FaUser />
                 </Link>
               </li>

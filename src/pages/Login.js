@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../contexts/AuthContext";
-import myAxios from "../contexts/MyAxios";
+
 import "./Gomb.css";
 
 export default function Bejelentkezes() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const csrf = () => myAxios.get("/sanctum/csrf-cookie");
-  const navigate = useNavigate();
+
   const { loginReg, errors } = useAuthContext();
 
   const handleSubmit = async (e) => {
@@ -17,11 +16,7 @@ export default function Bejelentkezes() {
       email: email,
       password: password,
     };
-    try {
-      await myAxios.post("/bejelentkezes", adat);
-    } catch (error) {
-      console.log(error);
-    }
+  loginReg(adat, "/login")
   };
 
   return (
@@ -83,13 +78,13 @@ export default function Bejelentkezes() {
 
           <p>
             Még nincs fiókja?
-            <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/regisztracio">
+            <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/register">
               Regisztráció
             </Link>
           </p>
         </div>
         <div className="text-center">
-          <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/elfelejtett-jelszo">
+          <Link className="nav-link" style={{ color: 'rgba(170, 136, 110, 0.65)' }} to="/forgot-password">
             Elfelejtettem a jelszavam
           </Link>
         </div>
