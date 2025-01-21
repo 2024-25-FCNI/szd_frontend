@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
       //await getUser();
       //elmegyünk  a kezdőlapra
       await getUser()
-      navigate("/");
+      navigate("/login");
       
     } catch (error) {
       console.log(error);

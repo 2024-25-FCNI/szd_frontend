@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import useAuthContext from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import myAxios from "../contexts/MyAxios";
+import {Password} from 'primereact/password';
+
 
 export default function Regisztracio() {
   const [name, setName] = useState("");
@@ -13,6 +15,7 @@ export default function Regisztracio() {
   const [passwordError, setPasswordError] = useState(""); // Jelszóhiba üzenet
   const [nameError, setNameError] = useState(""); // Név hibaüzenet
   const [emailError, setEmailError] = useState(""); // Email hibaüzenet
+
 
   const navigate = useNavigate();
   const { loginReg, errors } = useAuthContext();
@@ -68,8 +71,9 @@ export default function Regisztracio() {
     loginReg(adat, "/register");
    
       setSuccessMessage("Sikeres regisztráció! Átirányítunk a bejelentkezéshez...");
-     
+
   };
+
 
   return (
     <div className=" m-auto" style={{ maxWidth: "400px" }}>
@@ -128,21 +132,19 @@ export default function Regisztracio() {
             )}
           </div>
         </div>
+
         <div className="mb-3">
           <label htmlFor="pwd" className="form-label">
             Jelszó:
           </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            className="form-control"
-            id="pwd"
-            placeholder="jelszó"
-            name="pwd"
-          />
+         
+            <Password
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              toggleMask
+              feedback={true} // Opcionálisan elrejtheted a jelszóerősség visszajelzést
+            />
+          
           <div>
             {passwordError && (
               <span className="text-danger">{passwordError}</span>
@@ -152,6 +154,7 @@ export default function Regisztracio() {
             )}
           </div>
         </div>
+
         <div className="mb-3">
           <label htmlFor="pwd2" className="form-label">
             Jelszó újra:
