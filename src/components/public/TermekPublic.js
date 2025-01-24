@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import myAxios from "../../myAxios"; // Az API konfiguráció importálása
+import { myAxios } from "../../contexts/MyAxios";
+// Az API konfiguráció importálása
 
 export function TermekPublic() {
   const [termekek, setTermekek] = useState([]);

@@ -44,4 +44,10 @@ export const myAxios = axios.create({
 
   );
 
- 
+  axios.get('http://localhost:3000/api/termekek')
+  .then((response) => {
+    console.log(response.data); // Handle your data
+  })
+  .catch((error) => {
+    console.error("Error fetching termekek:", error);
+  });

@@ -29,29 +29,35 @@ export const AuthProvider = ({ children }) => {
       console.log(resp);
     });
   };
-
   const loginReg = async ({ ...adat }, vegpont) => {
-    //lekérjük a csrf tokent
+    // lekérjük a csrf tokent
     await csrf();
-    console.log(adat,vegpont);
-
+    console.log(adat, vegpont);
+  
     try {
       await myAxios.post(vegpont, adat);
       console.log("siker");
-      //sikeres bejelentkezés/regisztráció esetén
-      //Lekérdezzük a usert
-      //await getUser();
-      //elmegyünk  a kezdőlapra
-      await getUser()
+      // sikeres bejelentkezés/regisztráció esetén
+      await getUser();
       navigate("/login");
-      
     } catch (error) {
-      console.log(error);
-      if (error.response.status === 422) {
-        setErrors(error.response.data.errors);
+      console.error("Hiba történt:", error);
+  
+      // Ellenőrizzük, hogy az `error.response` létezik-e
+      if (error.response) {
+        console.log("Hibás válasz:", error.response);
+  
+        // Ellenőrizzük, hogy a státuszkód 422-e
+        if (error.response.status === 422) {
+          setErrors(error.response.data.errors);
+        }
+      } else {
+        // Ha az `error.response` nem létezik, loggoljuk a teljes hibát
+        console.error("Nem HTTP hiba történt:", error.message || error);
       }
     }
   };
+  
 
   return (
     <AuthContext.Provider value={{ logout, loginReg, errors, getUser, user }}>

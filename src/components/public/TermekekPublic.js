@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import TermekPublic from './TermekPublic';
-import apiClient from '../api/axios'; // Axios konfiguráció
+import { myAxios } from '../../contexts/MyAxios'; // Helyes importútvonal
+
+
 
 function TermekekPublic() {
   const [termekek, setTermekek] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Termékek lekérése a backend API-ról
     const fetchTermekek = async () => {
       try {
-        const response = await apiClient.get('/api/termekek'); // API végpont
-        setTermekek(response.data); // Termékek állapot frissítése
+        const response = await myAxios.get('/api/termekek'); // Backend API végpont
+        setTermekek(response.data); // API válasz beállítása az állapotba
       } catch (error) {
         console.error('Hiba a termékek lekérésekor:', error);
       } finally {
-        setLoading(false); // Betöltés befejezése
+        setLoading(false); // Betöltési állapot frissítése
       }
     };
 
